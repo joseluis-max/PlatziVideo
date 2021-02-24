@@ -35,6 +35,21 @@ module.exports = {
           'css-loader',
           'sass-loader'
         ]
+      },{
+        //archivos que usará para la versión de producción
+        test:/\.(jpg|png|gif)$/,
+        use:[
+          {
+            //loader instalado para enviar las imaganes a produccion 
+            loader:'file-loader',
+            options:{
+              //define el nombre de la imagen en produccion 
+              // [hash] genera un secuencia alfanumerica para el nombre de produccion de nuestros archivos
+              // [ext] devuelve la extencion original del archivo.
+              name:'assets/[hash].[ext]'
+            }
+          }
+        ]
       }
     ],
   },
